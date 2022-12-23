@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .pic {
+        animation: picAnim 1s ease-in-out;
+    }
+
+    .video {
+        animation: videoAnim 1s ease-in-out;
+    }
+
+    @keyframes videoAnim {
+        0% {
+            transform: translateY(10%);
+        }
+        100% {
+
+            transform: translateY(0);
+        }
+    }
+    .pic2 {
+        animation: picAnim2 1s ease-in-out;
+    }
+
+    @keyframes picAnim2 {
+        0% {
+            transform: translateY(-20%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes picAnim {
+        0% {
+            transform: translateY(20%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
