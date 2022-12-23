@@ -11,6 +11,19 @@
         animation: videoAnim 1s ease-in-out;
     }
 
+    .text {
+        animation: textAnim 0.5s ease-out;
+    }
+
+    @keyframes textAnim {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
     @keyframes videoAnim {
         0% {
             transform: translateY(10%);
