@@ -37,6 +37,19 @@
         animation: picAnim2 1s ease-in-out;
     }
 
+    .loader {
+        animation: loading 3s ease-out;
+    }
+
+    @keyframes loading {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
     @keyframes picAnim2 {
         0% {
             transform: translateY(-50%);

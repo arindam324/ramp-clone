@@ -37,7 +37,7 @@ function App() {
         //change the selectedTab item to another one after a certain period of time
         const timer = setInterval(() => {
             setSelectedTab(prev => prev > 0 && prev < 4 ? (prev + 1) : (1))
-        }, 2000)
+        }, 3000)
         return () => clearInterval(timer)
     }, [])
 
@@ -94,7 +94,7 @@ function App() {
                                 </svg>
                             </div>
                             <div className="w-full bg-gray-200 h-[1px]">
-                                <div className="bg-blue-gray-200 mt-2 h-1" style={{width: '100%'}}></div>
+                                <div className={` mt-2 h-[1px] ${selectedTab === item.id && ' bg-black loader'}`}></div>
                             </div>
                         </div>
                     ))}
