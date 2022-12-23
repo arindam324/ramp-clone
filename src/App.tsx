@@ -1,21 +1,21 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 
-const Content: React.FC<{ selectedTab: string }> = ({selectedTab}) => {
+const Content: React.FC<{ selectedTab: number }> = ({selectedTab}) => {
     switch (selectedTab) {
-        case '1':
+        case 1:
             return (
-                <img src={"/GyqKhax.png"} className={"pic"} alt={"image"}/>
+                <img src={"/GyqKhax.png"} className={"pic2"} alt={"image"}/>
             )
-        case '2':
+        case 2:
             return (
                 <video className={"h-[800px] w-full aspect-video video"} src={"/video.mp4"} autoPlay/>
             )
-        case '3':
+        case 3:
             return (
                 <img src={"/house.jpg"} className={"pic2"} alt={""}/>
             )
-        case '4':
+        case 4:
             return (
                 <img src={"/dashboard.png"} className={"pic"} alt={""}/>
             )
@@ -30,7 +30,19 @@ const Content: React.FC<{ selectedTab: string }> = ({selectedTab}) => {
 
 function App() {
 
-    const [selectedTab, setSelectedTab] = useState<string>("0")
+
+    const [selectedTab, setSelectedTab] = useState<number>(1)
+
+    useEffect(() => {
+        //change the selectedTab item to another one after a certain period of time
+        const timer = setInterval(() => {
+            setSelectedTab(prev => prev > 0 && prev < 4 ? (prev + 1) : (1))
+        }, 2000)
+        return () => clearInterval(timer)
+    }, [])
+
+    console.log(selectedTab)
+
     const Tabs = [
         {
             id: 1,
@@ -57,31 +69,33 @@ function App() {
     ]
 
     return (
-        <div className={"flex w-full min-h-screen max-w-[1280px] mx-auto  items-center justify-center"}>
+        <div className={"flex w-full space-x-5 min-h-screen max-w-[1480px] mx-auto  items-center justify-center"}>
             <div className={"w-1/2 "}>
                 <h1 className={"text-5xl font-semibold leading-normal "}>A better experience, for a better home</h1>
                 <p className={"text-lg leading-6"}>Our technology powers a seamless experience from discovery &
                     planning to post move-in living</p>
                 <div className={"mt-8 space-y-4"}>
                     {Tabs.map(item => (
-                        <div onClick={() => setSelectedTab(item.id.toString())} key={item.id}
-                             className={` border-b ${selectedTab === item.id.toString() ? 'pb-2' : ' h-content overflow-hidden'}  w-[80%] cursor-pointer `}>
+                        <div onClick={() => setSelectedTab(item.id)} key={item.id}
+                             className={`${selectedTab === item.id ? '' : ' h-content overflow-hidden'}  w-[80%] cursor-pointer `}>
                             <div className={"flex items-center  space-x-6"}>
                                 <p
-                                    className={`${selectedTab === item.id.toString() ? 'text-black' : "text-gray-300 "}`}>{`0${item.id}`}</p>
+                                    className={`${selectedTab === item.id ? 'text-black font-bold' : "text-gray-300 "}`}>{`0${item.id}`}</p>
                                 <h2 className={"text-3xl leading-normal"}>{item.name}</h2>
                             </div>
 
                             <div
-                                className={`flex items-center w-[92%] ml-auto justify-between ${selectedTab === item.id.toString() ? '' : " hidden opacity-0"}  `}>
-                                <p className={"leading-5 w-[60%] text font-semibold text-sm"}>{item.text}</p>
+                                className={`flex items-center w-[92%] ml-auto justify-between ${selectedTab === item.id ? '' : " hidden opacity-0"}  `}>
+                                <p className={"leading-5 w-[60%] text  text-sm"}>{item.text}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
                                     <path strokeLinecap="round" strokeLinejoin="round"
                                           d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
                                 </svg>
                             </div>
-                            {/*<div className={"w-full h-[0.5px] bg-gray-400"}/>*/}
+                            <div className="w-full bg-gray-200 h-[1px]">
+                                <div className="bg-blue-gray-200 mt-2 h-1" style={{width: '100%'}}></div>
+                            </div>
                         </div>
                     ))}
                 </div>
