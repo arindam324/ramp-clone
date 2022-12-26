@@ -12,7 +12,7 @@
     }
 
     .text {
-        animation: textAnim 0.5s ease-out;
+        animation: textAnim 1s linear;
     }
 
     @keyframes textAnim {
@@ -29,7 +29,6 @@
             transform: translateY(10%);
         }
         100% {
-
             transform: translateY(0);
         }
     }
@@ -38,7 +37,7 @@
     }
 
     .loader {
-        animation: loading 3s ease-out;
+        animation: loading 4s linear;
     }
 
     @keyframes loading {
@@ -63,7 +62,7 @@
 
     @keyframes picAnim {
         0% {
-            transform: translateY(50%);
+            transform: translateY(30%);
         }
         100% {
             transform: translateY(0);
