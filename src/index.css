@@ -16,12 +16,7 @@
     }
 
     @keyframes textAnim {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
+
     }
 
     @keyframes videoAnim {
@@ -40,12 +35,15 @@
         animation: loading 4s linear;
     }
 
+
     @keyframes loading {
         0% {
             width: 0;
+            transform: translateY(-5%);
         }
         100% {
             width: 100%;
+            transform: translateY(-5%);
         }
     }
 

@@ -183,8 +183,8 @@ function App() {
                             key={item.id}
                             className={`${
                                 selectedTab === item.id
-                                    ? "h-[64px]"
-                                    : " h-auto overflow-hidden transition ease-in-out "
+                                    ? "h-[140px]"
+                                    : " h-auto overflow-hidden "
                             }  w-[80%] cursor-pointer `}
                         >
                             <div className={"flex items-center  space-x-6"}>
@@ -208,10 +208,10 @@ function App() {
                                 className={`flex items-center w-[92%] ml-auto justify-between ${
                                     selectedTab === item.id
                                         ? ""
-                                        : " hidden  transition ease-out opacity-0"
+                                        : " hidden"
                                 }  `}
                             >
-                                <p className={"leading-5 w-[60%] text  text-sm"}>{item.text}</p>
+                                <p className={`leading-5 w-[60%] text text-sm ${selectedTab === item.id && 'text'}`}>{item.text}</p>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -229,8 +229,8 @@ function App() {
                             </div>
                             <div className="w-full bg-gray-200 h-[1px]">
                                 <div
-                                    className={` mt-2 h-[1px] ${
-                                        selectedTab === item.id && " bg-black loader"
+                                    className={` mt-2 h-[1px] transition-all  ${
+                                        selectedTab === item.id ? "translate-y-[120px] bg-black loader" : 'transform-y-[50px]'
                                     }`}
                                 ></div>
                             </div>
