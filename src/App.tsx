@@ -230,7 +230,7 @@ function App() {
                             <div className="w-full bg-gray-200 h-[1px]">
                                 <div
                                     className={` mt-2 h-[1px] transition-all  ${
-                                        selectedTab === item.id ? "translate-y-[120px] bg-black loader" : 'transform-y-[50px]'
+                                        selectedTab === item.id && "bg-black loader"
                                     }`}
                                 ></div>
                             </div>
