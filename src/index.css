@@ -3,38 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    .pic {
-        animation: picAnim 1s ease-in-out;
-    }
-
-    .video {
-        animation: videoAnim 1s ease-in-out;
-    }
-
-    .text {
-        animation: textAnim 1s linear;
-    }
-
-    @keyframes textAnim {
-
-    }
-
-    @keyframes videoAnim {
-        0% {
-            transform: translateY(10%);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-    .pic2 {
-        animation: picAnim2 1s ease-in-out;
-    }
-
     .loader {
         animation: loading 4s linear;
     }
-
 
     @keyframes loading {
         0% {
@@ -47,23 +18,31 @@
         }
     }
 
-    @keyframes picAnim2 {
+    .picUp {
+        animation: picUp 0.5s linear;
+    }
+
+    .picDown {
+        animation: picDown 0.5s linear;
+    }
+
+    @keyframes picDown {
         0% {
-            transform: translateY(-50%);
-            opacity: 0;
+            transform: translateY(5%);
         }
         100% {
             transform: translateY(0);
-            opacity: 1;
         }
     }
 
-    @keyframes picAnim {
+    @keyframes picUp {
         0% {
-            transform: translateY(30%);
+            transform: translateY(20%);
         }
         100% {
             transform: translateY(0);
         }
     }
+
+
 }
